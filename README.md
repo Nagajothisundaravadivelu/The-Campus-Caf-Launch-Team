@@ -23,7 +23,7 @@ The app's **Generate Launch Brief** button runs the existing CrewAI workflow, sh
 python .\cafe_launch.py
 ```
 
-The dependencies include CrewAI's LiteLLM extra, which enables the `groq/` provider, and the standalone `langchain-tavily` integration (instead of the deprecated `langchain-community` wrapper). The default model is `groq/qwen/qwen3.8-27b`; set `LLM_MODEL` in `.env` to another Groq model supported by CrewAI if desired. The default orchestration is sequential; `python .\cafe_launch.py --process hierarchical` runs CrewAI's hierarchical process using the configured model as manager.
+The dependencies include CrewAI's LiteLLM extra, which enables the `groq/` provider, and the standalone `langchain-tavily` integration (instead of the deprecated `langchain-community` wrapper). LiteLLM is pinned to a version tested with CrewAI's MCP SDK dependency to avoid an incompatible MCP import. Keep this pin unless the CrewAI/LiteLLM/MCP dependency set is upgraded and tested together. The default model is `groq/qwen/qwen3.8-27b`; set `LLM_MODEL` in `.env` to another Groq model supported by CrewAI if desired. The default orchestration is sequential; `python .\cafe_launch.py --process hierarchical` runs CrewAI's hierarchical process using the configured model as manager.
 
 ## Design and safeguards
 
